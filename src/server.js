@@ -5,7 +5,6 @@ import {
 	verifyKey,
 } from 'discord-interactions';
 import { TYMASJONO_COMMAND, TYMASJONO_REPLY_COMMAND } from './commands.js';
-import { InteractionResponseFlags } from 'discord-interactions';
 
 class JsonResponse extends Response {
 	constructor(body, init) {
