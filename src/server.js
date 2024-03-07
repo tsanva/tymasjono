@@ -4,7 +4,7 @@ import {
 	InteractionType,
 	verifyKey,
 } from 'discord-interactions';
-import { TYMASJONO_COMMAND } from './commands.js';
+import { TYMASJONO_COMMAND, TYMASJONO_REPLY_COMMAND } from './commands.js';
 import { InteractionResponseFlags } from 'discord-interactions';
 
 class JsonResponse extends Response {
@@ -26,7 +26,7 @@ const router = Router();
  */
 router.get('/', (request, env) => {
 	const inviteLink = `https://discord.com/oauth2/authorize?client_id=${env.APP_ID}&scope=applications.commands`;
-	return new Response(`👋\n\ninvite link:\n\n${inviteLink}`);
+	return new Response(`invite link:\n\n${inviteLink}`);
 });
 
 /**
@@ -54,6 +54,14 @@ router.post('/', async (request, env) => {
 	if (interaction.type === InteractionType.APPLICATION_COMMAND) {
 		switch (interaction.data.name.toLowerCase()) {
 			case TYMASJONO_COMMAND.name.toLowerCase(): {
+				return new JsonResponse({
+					type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+					data: {
+						content: "terima kasih mas jono",
+					},
+				});
+			}
+			case TYMASJONO_REPLY_COMMAND.name.toLowerCase(): {
 				return new JsonResponse({
 					type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
 					data: {

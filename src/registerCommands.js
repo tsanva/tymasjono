@@ -1,4 +1,4 @@
-import { TYMASJONO_COMMAND } from './commands.js';
+import { TYMASJONO_COMMAND, TYMASJONO_REPLY_COMMAND } from './commands.js';
 import dotenv from 'dotenv';
 import process from 'node:process';
 
@@ -34,7 +34,7 @@ const response = await fetch(url, {
 		Authorization: `Bot ${token}`,
 	},
 	method: 'PUT',
-	body: JSON.stringify([TYMASJONO_COMMAND]),
+	body: JSON.stringify([TYMASJONO_COMMAND, TYMASJONO_REPLY_COMMAND]),
 });
 
 if (response.ok) {
