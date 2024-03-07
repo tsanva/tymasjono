@@ -1,6 +1,6 @@
 {
   "name": "tymasjono",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "deploy": "wrangler deploy",
@@ -8,6 +8,11 @@
     "start": "wrangler dev"
   },
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "discord-interactions": "^3.4.0",
+    "itty-router": "^4.0.27"
   }
 }
